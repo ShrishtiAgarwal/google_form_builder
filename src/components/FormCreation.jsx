@@ -14,7 +14,6 @@ const StyledFormPage = styled.div`
   & .button {
     display: flex;
     justify-content: center;
-
     & .component {
       border-radius: 25px;
       outline: none;
@@ -95,19 +94,8 @@ const CreateForm = () => {
     },
   ]);
 
-  const addComponent = () => {
-    const tempArray = [...dataList];
-    tempArray.push({
-      type: "input",
-      question: "",
-      answer: "",
-    });
-    setDataList(tempArray);
-    uiComponent();
-  };
-
   const handleDataChange = (e, index) => {
-    if (e.target.value === "input") {
+    if (e?.target?.value === "input") {
       if (dataList[index].type === "input") {
         return;
       }
@@ -123,7 +111,6 @@ const CreateForm = () => {
       if (dataList[index].type === "radio") {
         return;
       }
-      
       const tempArray = [...dataList];
       tempArray[index].type = "radio";
       tempArray[index].question = tempArray[index].question
@@ -141,7 +128,7 @@ const CreateForm = () => {
       tempArray[index].text = "";
       setDataList(tempArray);
       uiComponent();
-    } else if (e.target.value === "dropdown") {
+    } else if (e?.target?.value === "dropdown") {
       if (dataList[index].type === "dropdown") {
         return;
       }
@@ -230,12 +217,23 @@ const CreateForm = () => {
     return false;
   };
 
+  const addComponent = () => {
+    const tempArray = [...dataList];
+    tempArray.push({
+      type: "input",
+      question: "",
+      answer: "",
+    });
+    setDataList(tempArray);
+    uiComponent();
+  };
+
   function uiComponent() {
     return (
       dataList?.length > 0 &&
       dataList.map((question, index) => (
         <div>
-          {question.type === "input" && (
+          {question?.type === "input" && (
             <StyledTextTypeContent key={index}>
               <div className="question__container">
                 <div className="container">
@@ -285,7 +283,7 @@ const CreateForm = () => {
               </div>
             </StyledTextTypeContent>
           )}
-          {question.type === "radio" && (
+          {question?.type === "radio" && (
             <StyledTextTypeContent key={index}>
               <div className="question__container">
                 <div className="container">
@@ -308,7 +306,7 @@ const CreateForm = () => {
                     className="input"
                     onChange={(e) => changeQuestion(e, index)}
                   />
-                  {question.radio.map((radioOption, ind) => (
+                  {question?.radio.map((radioOption, ind) => (
                     <div>
                       <Radio></Radio>
                       <Input
@@ -346,7 +344,7 @@ const CreateForm = () => {
               </div>
             </StyledTextTypeContent>
           )}
-          {question.type === "static" && (
+          {question?.type === "static" && (
             <StyledTextTypeContent key={index}>
               <div className="question__container">
                 <div className="container">
@@ -391,7 +389,7 @@ const CreateForm = () => {
               </div>
             </StyledTextTypeContent>
           )}
-          {question.type === "dropdown" && (
+          {question?.type === "dropdown" && (
             <StyledTextTypeContent key={index}>
               <div className="question__container">
                 <div className="container">
@@ -415,7 +413,7 @@ const CreateForm = () => {
                       onChange={(e) => changeQuestion(e, index)}
                     />
                   </p>
-                  {question.radio.map((radioOption, ind) => (
+                  {question?.radio.map((radioOption, ind) => (
                     <div>
                       {ind + 1}
                       <Input
@@ -460,8 +458,8 @@ const CreateForm = () => {
 
   const downloadComponent = () => {
     var dataStr =
-    "data:text/json;charset=utf-8," +
-    encodeURIComponent(JSON.stringify(dataList));
+      "data:text/json;charset=utf-8," +
+      encodeURIComponent(JSON.stringify(dataList));
     var downloadAnchorNode = document.createElement("a");
     downloadAnchorNode.setAttribute("href", dataStr);
     downloadAnchorNode.setAttribute("download", "playmentform.json");
@@ -474,7 +472,7 @@ const CreateForm = () => {
     <StyledFormPage>
       <FormHeader />
       <StyledTextTypeContent>
-        <div style={{height: '80px'}}></div>
+        <div style={{ height: "80px" }}></div>
       </StyledTextTypeContent>
       {uiComponent()}
       <div className="button">
@@ -482,7 +480,7 @@ const CreateForm = () => {
           Add component
         </Button>
       </div>
-      <div className="button" style={{paddingBottom: '40px'}}>
+      <div className="button" style={{ paddingBottom: "40px" }}>
         <Button className="component" onClick={downloadComponent}>
           Download
         </Button>
