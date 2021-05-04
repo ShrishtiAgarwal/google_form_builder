@@ -16,7 +16,7 @@ const StyledLoginPageContent = styled.div`
     height: 100vh;
     overflow: hidden;
     background-color: white;
-    background-image: url("./form1.png");
+    background-image: url("./form.png");
     width: 80%;
     flex: auto;
     background-position: center;

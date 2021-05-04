@@ -25,6 +25,7 @@ const StyledFormPage = styled.div`
       font-weight: bold;
       font-size: 16px;
       padding: 10px;
+      cursor: pointer;
     }
   }
 `;
@@ -50,6 +51,14 @@ const StyledTextTypeContent = styled.div`
       & .question_type {
         display: flex;
         justify-content: flex-end;
+        border-radius: 25px;
+        & .select__type {
+          border-radius: 25px;
+          background-color: white;
+          width: 150px;
+          border: 1px solid #7306e0;
+          outline: none;
+        }
       }
       & .input {
         border: none;
@@ -211,7 +220,7 @@ const CreateForm = () => {
   };
 
   const disableDownArrow = (index) => {
-    if (index === dataList.length - 1) {
+    if (index === dataList?.length - 1) {
       return true;
     }
     return false;
@@ -238,7 +247,7 @@ const CreateForm = () => {
               <div className="question__container">
                 <div className="container">
                   <div className="question_type">
-                    <select onChange={(e) => handleDataChange(e, index)}>
+                    <select className="select__type" onChange={(e) => handleDataChange(e, index)}>
                       <option disabled selected>
                         {"Select type"}
                       </option>
@@ -264,20 +273,35 @@ const CreateForm = () => {
                   />
                 </div>
                 <div className="controls">
-                  <div>
+                  <div className="move__up">
                     <ArrowUpOutlined
+                      style={{
+                        outline: "none",
+                        fontWeight: "900",
+                        color: "#c67ace",
+                      }}
                       onClick={() => moveItemUp(index)}
                       disabled={disableupperArrow()}
                     />
                   </div>
                   <div>
                     <ArrowDownOutlined
+                      style={{
+                        outline: "none",
+                        fontWeight: "900",
+                        color: "#c67ace",
+                      }}
                       onClick={() => moveItemDown(index)}
                       disabled={disableDownArrow()}
                     />
                   </div>
                   <div>
-                    <DeleteOutlined onClick={() => deletItem(index)} />
+                    <DeleteOutlined
+                      style={{
+                        outline: "none",
+                      }}
+                      onClick={() => deletItem(index)}
+                    />
                   </div>
                 </div>
               </div>
@@ -288,7 +312,7 @@ const CreateForm = () => {
               <div className="question__container">
                 <div className="container">
                   <div className="question_type">
-                    <select onChange={(e) => handleDataChange(e, index)}>
+                    <select className="select__type" onChange={(e) => handleDataChange(e, index)}>
                       <option disabled selected>
                         {"Select type"}
                       </option>
@@ -327,18 +351,33 @@ const CreateForm = () => {
                 <div className="controls">
                   <div>
                     <ArrowUpOutlined
+                      style={{
+                        outline: "none",
+                        fontWeight: "900",
+                        color: "#c67ace",
+                      }}
                       onClick={() => moveItemUp(index)}
                       disabled={disableupperArrow()}
                     />
                   </div>
                   <div>
                     <ArrowDownOutlined
+                      style={{
+                        outline: "none",
+                        fontWeight: "900",
+                        color: "#c67ace",
+                      }}
                       onClick={() => moveItemDown(index)}
                       disabled={disableDownArrow()}
                     />
                   </div>
                   <div>
-                    <DeleteOutlined onClick={() => deletItem(index)} />
+                    <DeleteOutlined
+                      style={{
+                        outline: "none",
+                      }}
+                      onClick={() => deletItem(index)}
+                    />
                   </div>
                 </div>
               </div>
@@ -349,7 +388,7 @@ const CreateForm = () => {
               <div className="question__container">
                 <div className="container">
                   <div className="question_type">
-                    <select onChange={(e) => handleDataChange(e, index)}>
+                    <select className="select__type" onChange={(e) => handleDataChange(e, index)}>
                       <option disabled selected>
                         {"Select type"}
                       </option>
@@ -372,18 +411,33 @@ const CreateForm = () => {
                 <div className="controls">
                   <div>
                     <ArrowUpOutlined
+                      style={{
+                        outline: "none",
+                        fontWeight: "900",
+                        color: "#c67ace",
+                      }}
                       onClick={() => moveItemUp(index)}
                       disabled={disableupperArrow()}
                     />
                   </div>
                   <div>
                     <ArrowDownOutlined
+                      style={{
+                        outline: "none",
+                        fontWeight: "900",
+                        color: "#c67ace",
+                      }}
                       onClick={() => moveItemDown(index)}
                       disabled={disableDownArrow()}
                     />
                   </div>
                   <div>
-                    <DeleteOutlined onClick={() => deletItem(index)} />
+                    <DeleteOutlined
+                      style={{
+                        outline: "none",
+                      }}
+                      onClick={() => deletItem(index)}
+                    />
                   </div>
                 </div>
               </div>
@@ -394,7 +448,7 @@ const CreateForm = () => {
               <div className="question__container">
                 <div className="container">
                   <div className="question_type">
-                    <select onChange={(e) => handleDataChange(e, index)}>
+                    <select className="select__type" onChange={(e) => handleDataChange(e, index)}>
                       <option disabled selected>
                         {"Select type"}
                       </option>
@@ -434,18 +488,33 @@ const CreateForm = () => {
                 <div className="controls">
                   <div>
                     <ArrowUpOutlined
+                      style={{
+                        outline: "none",
+                        fontWeight: "900",
+                        color: "#c67ace",
+                      }}
                       onClick={() => moveItemUp(index)}
                       disabled={disableupperArrow()}
                     />
                   </div>
                   <div>
                     <ArrowDownOutlined
+                      style={{
+                        outline: "none",
+                        fontWeight: "900",
+                        color: "#c67ace",
+                      }}
                       onClick={() => moveItemDown(index)}
                       disabled={disableDownArrow()}
                     />
                   </div>
                   <div>
-                    <DeleteOutlined onClick={() => deletItem(index)} />
+                    <DeleteOutlined
+                      style={{
+                        outline: "none",
+                      }}
+                      onClick={() => deletItem(index)}
+                    />
                   </div>
                 </div>
               </div>
